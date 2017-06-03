@@ -1,0 +1,56 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+{% load typogrify_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+    {% if self.image_as_cover %}
+    <div class="block-cover">
+        <figure class="image large">
+            {% image self.image fill-890x360 %}
+        </figure>
+    </div>
+    {% endif %}
+
+    <!--{% if self.image %}-->
+    <!--<div class="block-cover">-->
+        <!--<figure class="image large" style="margin-left: 50px;">-->
+            <!--{% image self.image width-59 height-166 %}-->
+        <!--</figure>-->
+    <!--</div>-->
+    <!--{% endif %}-->
+
+    <div class="block-heading title">
+        <h1>
+            {{ self.title|smartypants }}
+        </h1>
+    </div>
+
+    {% if self.source %}
+    <div class="block-paragraph">
+        <p style="color:#939598">
+            Bron: {{ self.source }}
+            Zie het artikel <a href={{ self.url_source }}>hier</i></a>
+        </p>
+    </div>
+    {% endif %}
+
+
+    {% if self.subtitle %}
+    <div class="block-heading subtitle">
+        <h2>
+            {{ self.subtitle|smartypants }}
+        </h2>
+    </div>
+    {% endif %}<br>
+
+    <div class="block-paragraph">{{ page.body|smartypants }}</div>
+
+    <p><a style="margin-left: 50px;" href="{{ page.get_parent.url }}">Return to media</a></p>
+
+{% endblock %}
+

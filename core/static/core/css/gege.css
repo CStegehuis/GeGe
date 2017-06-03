@@ -1,0 +1,83 @@
+.logo{
+	margin-left: 20px;
+	margin-bottom: 10px;
+	margin-top: 10px;">
+}
+
+.container {
+	position:relative;
+}
+
+.header-container {
+	display:flex;
+	margin:0 auto;
+	max-width:56.875em;
+	box-sizing:border-box;
+	flex-flow: row wrap;
+}
+
+
+.search {
+	margin-left:0.5em;
+}
+
+.header-container .social {
+	align-items: center;
+	display:flex;
+	flex:0 0 4em;
+	font-size:150%;
+}
+
+
+.search {
+	margin-left:0.5em;
+}
+.search, .search form {
+	flex: 1 1 1px;
+	display:flex;
+	justify-content:flex-end;
+	align-items: center;
+	min-width:1px;
+}
+.search input {
+	flex:1;
+	align-self:center;
+}
+.search input.button {
+	display:none;
+}
+.search input[type=text] {
+	border:3px solid #E7E8E9;
+	padding: 5px 10px;
+}
+.search input[type=text]:focus {
+	border-color:#8fa3cb;
+	outline: none;
+}
+.article-block.search-filter{
+    padding:1em;
+}
+.search-filter-container h1 {
+	margin-left:0.5em;
+}
+.search-filter h2{
+    margin-top:0;
+    margin-bottom:0.5em;
+}
+.search-filter ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+body {
+	line-height:1.625em;
+	color:#374466;
+}
+
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+	/* Set your content font stack here: */
+	/*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+	font-family: 'Open Sans', sans-serif;
+}

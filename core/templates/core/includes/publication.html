@@ -1,0 +1,20 @@
+{% load wagtailimages_tags %}
+
+<div class="author container">
+
+        {% for publication_about in page.publications_about.all %}
+            <div style="float: right; margin: 50px; margin-left: 50px;">{% image publication_about.publication.image fill-180x180 %}</div>
+
+            <div class="block author"><p>"{{ publication_about.publication.title }}"</p>
+
+            {% if publication_about.publication.subtitle %}
+            <div>{{ publication_about.publication.subtitle|smartypants }}</div><br>
+            {% endif %}
+
+            {{ publication_about.publication.pretty_date }} - {{ publication_about.publication.source }}
+
+            <p>{{ publication_about.publication.description }}</p>
+
+            <p>Hier te lezen <a href={{ publication_about.publication.url_source }}>{{ publication_about.publication.source }}</a></p></div><br>
+    {% endfor %}
+</div>

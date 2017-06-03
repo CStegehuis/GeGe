@@ -1,0 +1,11 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+    <br><div style="margin-left: 50px">{{ page.body|richtext }}</div>
+{% endblock %}
