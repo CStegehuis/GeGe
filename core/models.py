@@ -25,6 +25,8 @@ from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from modelcluster.tags import ClusterTaggableManager
 from taggit.models import TaggedItemBase
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from core.helpers import paginate
 
 
 # =================================================================
@@ -195,8 +197,21 @@ class BlogIndexPage(Page):
     def get_context(self, request):
         # Update context to include only published posts, ordered by reverse-chron
         context = super(BlogIndexPage, self).get_context(request)
+        page = request.GET.get('page')
         blogpages = self.get_children().live().order_by('-first_published_at')
         context['blogpages'] = blogpages
+        # paginator = Paginator(blogpages, 4)
+        #
+        # return {'blogs': paginate(paginator, context['request'].GET.get('page'))}
+        # try:
+        #     context['blogs'] = paginator.page(page)
+        # except PageNotAnInteger:
+        #     # If page is not an integer, deliver first page.
+        #     context['blogs'] = paginator.page(1)
+        # except EmptyPage:
+        #     # If page is out of range (e.g. 9999), deliver last page of results.
+        #     context['blogs'] = paginator.page(paginator.num_pages)
+
         return context
 
 

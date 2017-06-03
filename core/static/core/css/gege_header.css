@@ -1,0 +1,325 @@
+.container {
+    position: relative;
+}
+
+.header-container {
+    display: flex;
+    margin: 0 auto;
+    box-sizing: border-box;
+    margin-top: 30px;
+}
+
+.header-container .social {
+    align-items: center;
+    display: flex;
+    font-size: 150%;
+    margin-left: 500px;
+}
+
+
+.search, .search form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-width: 1px;
+}
+
+.search {
+    margin-left: 0.5em;
+}
+
+
+
+img {
+    border: 0;
+}
+
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+.clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical>.btn-group:before, .btn-group-vertical>.btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-header:before, .modal-header:after, .modal-footer:before, .modal-footer:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after, .dl-horizontal dd:after, .container:after, .container-fluid:after, .row:after, .form-horizontal .form-group:after, .btn-toolbar:after, .btn-group-vertical>.btn-group:after, .nav:after, .navbar:after, .navbar-header:after, .navbar-collapse:after, .pager:after, .panel-body:after, .modal-header:after, .modal-footer:after {
+    clear: both;
+}
+
+.navbar {
+    font-size: 16px;
+    font-family: "News Cycle","Arial Narrow Bold",sans-serif;
+    font-weight: 700;
+}
+
+.navbar-inverse {
+    background-color: #c7b8b8;
+    border-color: #dcd2d2;
+}
+
+@media (min-width: 768px)
+.navbar-header {
+    float: left;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #e53c37;
+}
+
+
+@media (min-width: 768px)
+.navbar-toggle {
+    display: none;
+}
+
+.navbar-toggle {
+    position: relative;
+    float: right;
+    margin-right: 15px;
+    padding: 9px 10px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
+    /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
+    color: #ffffff;
+    background-color: #e74b47;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+div {
+    display: block;
+}
+
+body {
+    line-height: 1.625em;
+    color: #374466;
+}
+
+body {
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #777777;
+    background-color: #ffffff;
+}
+
+body {
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #777777;
+    background-color: #ffffff;
+}
+
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+*:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.header-container .social a {
+    color: inherit;
+    text-decoration: none;
+    border: 0;
+    margin-right: 8px;
+}
+
+.header-container .social i {
+    flex: 0 0 1em;
+    /* text-align: center; */
+    padding: 0 5px 0 0;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.navbar-brand {
+    font-size: inherit;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.navbar-brand {
+    float: left;
+    padding: 19.5px 15px;
+    font-size: 19px;
+    line-height: 21px;
+    height: 60px;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #ffffff;
+}
+
+.navbar-brand > img {
+    display: block;
+}
+
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.navbar-nav {
+    margin: 9.75px -15px;
+}
+
+@media (min-width: 1200px)
+.container {
+    width: 1170px;
+}
+
+@media (min-width: 992px)
+.container {
+    width: 970px;
+}
+
+@media (min-width: 768px)
+.container {
+    width: 750px;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: auto;
+    text-decoration: underline;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+
+.navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 21px;
+}
+
+a {
+    background-color: transparent;
+}
+
+.nav {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+@media (min-width: 768px)
+.navbar {
+    border-radius: 4px;
+}
+
+.navbar {
+    position: relative;
+    min-height: 60px;
+    margin-bottom: 21px;
+    border: 1px solid transparent;
+}
+
+
+
+
+
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}

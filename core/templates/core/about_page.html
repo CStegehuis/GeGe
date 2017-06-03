@@ -7,21 +7,37 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
+<div class="content-block">
+    <fieldset>
+    <br><div ><h1>{{ page.title|smartypants }}</h1></div>
 
-    <br><div class="block-heading title"><h1>{{ page.title|smartypants }}</h1></div>
-
-    <br>{% for item in page.gallery_images.all %}
-        <div class="block-heading" style="float: right; margin: 25px; margin-left: 50px;">
+    {% for item in page.gallery_images.all %}
+        <div style="float: left; margin: 25px; margin-left: 20px;">
             {% image item.image fill-220x220 %}
         </div>
     {% endfor %}
 
+    <div >{{ page.body|smartypants }}</div>
+    </fieldset>
+
+    <div class="personal info" style="float: left; margin-left:40px;">
+        <div><h3>Personal information</h3></div>
+        <span class="social">
+            <i class="fi-social-linkedin"></i>
+            <a href="https://www.linkedin.com/in/anke-stegehuis-42347956">LinkedIn Anke Stegehuis</a>
+        </span><br>
+        <span class="social">
+            <i class="fi-social-twitter"></i>
+            <a href="https://twitter.com/Geheime_liefde">Twitter - Geheime geliefden</a>
+        </span><br>
+        <span class="social">
+            <i class="fi-mail">  geheimegeliefden@hotmail.com</i>
+        </span>
+    </div>
 
 
-    <div class="block-paragraph" style="margin-left: 50px;"><p>{{ page.body|smartypants }}</p></div>
-
-
-    <div class="block-heading title"><h2><p>Publicaties</p></h2></div>
+    <div style="floate:left;">
+    <div style="margin-left:270px;" class="block-heading title"><h2><p>Publicaties</p></h2></div>
     {% for publication_about in page.publications_about.all %}
         <div class="author container">
             <div class="author portrait">
@@ -35,16 +51,17 @@
 
                 {% if publication_about.publication.subtitle %}
                     <i>{{ publication_about.publication.subtitle|smartypants }}</i></p>
-                {% endif %}<br>
+                {% endif %}
 
-                <i>{{ publication_about.publication.pretty_date }}</i> - {{ publication_about.publication.source }}
+                <p><i>{{ publication_about.publication.pretty_date }}</i> - {{ publication_about.publication.source }}<br>
 
-                <p>{{ publication_about.publication.description }}</p>
+                {{ publication_about.publication.description }}</p>
 
-                <br><p>Hier te lezen <a href={{ publication_about.publication.url_source }}>{{ publication_about.publication.source }}</a></p>
-            </div><br>
+                <p>Hier te lezen <a href={{ publication_about.publication.url_source }}>{{ publication_about.publication.source }}</a></p>
+            </div>
         </div>
     {% endfor %}
+    </div>
 
-
+</div>
 {% endblock %}

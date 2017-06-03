@@ -24,11 +24,7 @@
     <!--</div>-->
     <!--{% endif %}-->
 
-    <div class="block-heading title">
-        <h1>
-            {{ self.title|smartypants }}
-        </h1>
-    </div>
+    <div><h1>{{ self.title|smartypants }}</h1></div>
 
     {% if self.source %}
     <div class="block-paragraph">

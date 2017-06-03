@@ -6,29 +6,82 @@
 <!--{% block body_class %}template-blogindexpage{% endblock %}-->
 
 {% block content %}
-    <div class="block-heading title"><h1 style="margin-left: 50px">{{ page.title }}</h1></div>
 
-    <!--<div class="intro">{{ page.intro|richtext }}</div>-->
+    <div class="sidebar">
+        <h3>Categorien</h3>
+            {% categories %}
+        <h3>Reeksen</h3>
+            {% reeksen %}
+    </div>
 
-    {% categories %}
+    <div class="blogpage" style="float:left;">
+        <div><h1>{{ page.title }}</h1></div>
+
+        <div style="float:left;">
+
+            {% for post in blogpages %}
+                <div style="margin-left:25px; float:left;">
+                    {% with post=post.specific %}
+                        <h4><a href="{% pageurl post %}">{{ post.title }}</a></h4>
+
+                        {% with post.main_image as main_image %}
+                            {% if main_image %}{% image main_image min-75x75 %}{% endif %}
+                        {% endwith %}
+                        <h6 style="font-color: #e6e6e6">{{ post.source }} - {{ post.publish_date }}</h6>
+
+                        <!--<p>{{ post.intro }}</p>-->
+                        <!--{{ post.body|richtext }}-->
+                    {% endwith %}
+                </div>
+            {% endfor %}
 
 
-    {% reeksen %}
+            <!--{% for blog in blogs %}-->
+                <!--<div style="margin-left:25px; float:left;">-->
 
-    <p>{% for post in blogpages %}
-        <div style="float: left; margin-left: 50px">
-        {% with post=post.specific %}
-            <h5><a href="{% pageurl post %}">{{ post.title }}</a></h5>
+                    <!--{% if blog %}-->
+                        <!--{% with blog=blog.specific %}-->
+                            <!--<h4><a href="{% pageurl blog %}">{{ blog.title }}</a></h4>-->
 
-            {% with post.main_image as main_image %}
-                {% if main_image %}{% image main_image min-100x150 %}{% endif %}
-            {% endwith %}
-            <h6 style="font-color: #e6e6e6">{{ post.source }} - {{ post.publish_date }}</h6>
-
-            <!--<p>{{ post.intro }}</p>-->
-            <!--{{ post.body|richtext }}-->
-        {% endwith %}</div>
-        {% endfor %}</p>
+                            <!--{% with blog.main_image as main_image %}-->
+                                <!--{% if main_image %}{% image main_image min-75x75 %}{% endif %}-->
+                            <!--{% endwith %}-->
+                            <!--<h6 style="font-color: #e6e6e6">{{ blog.source }} - {{ blog.publish_date }}</h6>-->
+                        <!--{% endwith %}-->
+                    <!--{% endif %}-->
+                <!--</div>-->
+            <!--{% endfor %}-->
 
 
+            <!--<div class="pagination">-->
+                <!--{% if blogs.has_next %}-->
+                    <!--<a href="/?page={{ blogs.next_page_number }}" >volgende</a>-->
+                <!--{% else %}-->
+                    <!--<a >volgende</a>-->
+                <!--{% endif %}-->
+
+                <!--{% if blogs.has_previous %}-->
+                    <!--<a href="/?page={{ blogs.previous_page_number }}" >vorige</a>-->
+                <!--{% else %}-->
+                    <!--<a >vorige</a>-->
+                <!--{% endif %}-->
+
+
+                <!--&lt;!&ndash;{% if blogs.has_previous %}&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li><a href="?page={{ blogs.previous_page_number }}"></a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;{% endif %}&ndash;&gt;-->
+                <!--&lt;!&ndash;{% for page_num in blogs.paginator.page_range %}&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li {% if page_num == blogs.number %}&ndash;&gt;-->
+                    <!--&lt;!&ndash;class="active" {% endif %}><a href="?page={{ page_num }}">{{ page_num }}</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;{% endfor %}&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li><a href="?page={{ blogs.next_page_number }}"></i></a></li>&ndash;&gt;-->
+            <!--</div>-->
+
+
+
+        </div>
+
+    </div>
 {% endblock %}
+
+
