@@ -1,3 +1,8 @@
+{% load staticfiles %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
 {% for reeks in reeksen %}
-    {{ reeks.name }}
+    <a href="{% slugurl 'reeks-index' %}?reeks={{ reeks }}">{{ reeks }}</a>
 {% endfor %}
+

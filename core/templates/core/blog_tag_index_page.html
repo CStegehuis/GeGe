@@ -1,27 +1,48 @@
 {% extends "core/base.html" %}
 {% load staticfiles %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags core_tags%}
 
 {% block content %}
 
+
+<div class="sidebar">
+    <fieldset style="background-color: #e6e6e6">
+    <h3>Categorien</h3>
+        {% categories %}
+    <br />
+    <h3>Reeksen</h3>
+        {% reeksen %}
+    </fieldset>
+</div>
+
+<div class="blogpage" style="float:left;">
     <div style="margin-left: 50px;">
-    {% if request.GET.tag|length %}
-        <h4>Showing pages tagged "{{ request.GET.tag }}"</h4>
-    {% endif %}
+        {% if request.GET.tag|length %}
+            <h1>Pagina('s) met de tag "{{ request.GET.tag }}"</h1>
+        {% endif %}
+        <div>
+        {% for blogpage in blogpages %}
+                <fieldset style="float:left;">
+                <strong><a href="{% pageurl blogpage %}">{{ blogpage.title }}</a></strong><br />
+                    {% with blogpage.main_image as main_image %}
+                        {% if main_image %}{% image main_image min-75x75 %}{% endif %}
+                    {% endwith %}
 
-    {% for blogpage in blogpages %}
+                    <!--<small style="margin-left: 50px;">Revised: {{ blogpage.latest_revision_created_at }}</small><br />-->
+                    {% if blogpage.author %}
+                        <p>By {{ blogpage.author.profile }}</p>
+                    {% endif %}<br />
 
-          <p>
-              <strong><a href="{% pageurl blogpage %}">{{ blogpage.title }}</a></strong><br />
-              <small>Revised: {{ blogpage.latest_revision_created_at }}</small><br />
-              {% if blogpage.author %}
-                <p>By {{ blogpage.author.profile }}</p>
-              {% endif %}
-          </p>
+                <small style="font-color: #e6e6e6">{{ blogpage.source }} - {{ blogpage.publish_date }} - {{ blogpage.latest_revision_created_at }}</small>
+                <br /><br />
+                </fieldset>
 
-    {% empty %}
-        No pages found with that tag.
-    {% endfor %}</div>
-
+        {% empty %}
+            Geen pagina's gevonden met de tag {{request.GET.tag }}
+        {% endfor %}
+        </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

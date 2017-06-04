@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+{% load staticfiles %}
+
+{% load wagtailcore_tags wagtailimages_tags core_tags %}
+
+{% block content %}
+
+<div class="sidebar">
+    <fieldset style="background-color: #e6e6e6">
+    <h3>Categorien</h3>
+        {% categories %}
+    <h3>Reeksen</h3>
+        {% reeksen %}
+    </fieldset>
+</div>
+{% endblock %}
+<!-- This is where you'll put your page content. Leave it blank for now. -->
+<div class="container">{% block content %}{% endblock %}</div>

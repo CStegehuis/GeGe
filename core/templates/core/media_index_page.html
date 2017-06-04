@@ -21,14 +21,14 @@
             {% if post.image_as_cover %}
             <div class="block-cover">
                 <figure class="image large">
-                    <a href="{% pageurl post %}">{% image post.image fill-300x240 %}</a>
+                    <a href="{% pageurl post %}">{% image post.image min-100x180 %}</a>
                 </figure>
             </div>
 
             {% elif post.image %}
             <div class="block-cover">
                 <figure class="image large">
-                    <a href="{% pageurl post %}">{% image post.image fill-300x240 %}</a>
+                    <a href="{% pageurl post %}">{% image post.image min-150x150 %}</a>
                 </figure>
             </div>
             {% endif %}

@@ -27,7 +27,7 @@ main {}
 }
 
 .blogpage {
-    margin-left: 250px;
+    margin-left: 200px;
     padding-top: 10px;
 }
 
@@ -43,7 +43,12 @@ h1 {
 
 h2 {}
 h3 {}
-h4 {}
+
+h4 {
+	margin:0 0 1em 0;
+	padding:0;
+}
+
 h5 {}
 h6 {}
 
@@ -109,6 +114,14 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #a8a3a3;
+    color: #ffffff
+}
+
+.nav-bar {
+    float: left;
+    display: block;
+    padding: 14px 16px;
+
 }
 
 
@@ -122,6 +135,7 @@ header {
     margin: auto;
     box-sizing: border-box;
     margin-top: 30px;
+    padding-top: 30px;
 }
 
 .header-logo {
@@ -184,16 +198,20 @@ header {
 
 
 li {
-    float: left;
+    display: list-item;
+    text-align: -webkit-match-parent;
 }
 
+
+
 li a {
-    display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
+
+
 
 /* Change the link color to #111 (black) on hover */
 /*li a:hover {
@@ -300,5 +318,57 @@ figure {
 figure img {
     width: 100%;
     height: auto;
+}
+
+
+
+
+
+
+.section-heading {
+    text-align: left;
+    border-bottom: 1px solid gray;
+    /* padding: 0 1em; */
+    margin: 0 1.5em;
+}
+
+.section-heading span {
+    background-color: #a8a3a3;
+    padding: 0.1em 1em;
+    display: inline-block;
+    color: white;
+}
+
+
+blockquote {
+    padding: 0.5px 10px;
+    margin: 0 0 21px;
+    font-size: 16.5px;
+    border-left: 5px solid #eeeeee;
+}
+
+/* Archive */
+.archive-list {
+    box-sizing: border-box;
+    padding: 0 1.5em;
+}
+
+.archive-link {
+    font-family: 'Lora', 'Georgia', serif;
+}
+
+.archive-list .date {
+    font-size: 80%;
+    width: 7em;
+    display: inline-block;
+}
+
+.archive {
+    display: inline-block;
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
 }
 

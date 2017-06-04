@@ -24,7 +24,15 @@
     <!--</div>-->
     <!--{% endif %}-->
 
-    <div><h1>{{ self.title|smartypants }}</h1></div>
+    <div style="margin-left:270px"><h1>{{ self.title|smartypants }}</h1></div>
+
+    {% if self.subtitle %}
+    <div class="block-heading subtitle">
+        <h2>
+            {{ self.subtitle|smartypants }}
+        </h2>
+    </div>
+    {% endif %}<br>
 
     {% if self.source %}
     <div class="block-paragraph">
@@ -36,13 +44,7 @@
     {% endif %}
 
 
-    {% if self.subtitle %}
-    <div class="block-heading subtitle">
-        <h2>
-            {{ self.subtitle|smartypants }}
-        </h2>
-    </div>
-    {% endif %}<br>
+
 
     <div class="block-paragraph">{{ page.body|smartypants }}</div>
 

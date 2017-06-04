@@ -141,7 +141,7 @@ class BlogPage(Page):
         index.SearchField('source'),
         index.SearchField('tag_id'),
         index.SearchField('tag_name'),
-        # index.SearchField('categories'),
+        index.SearchField('categories'),
     ]
 
     content_panels = Page.content_panels + [
@@ -197,7 +197,7 @@ class BlogIndexPage(Page):
     def get_context(self, request):
         # Update context to include only published posts, ordered by reverse-chron
         context = super(BlogIndexPage, self).get_context(request)
-        page = request.GET.get('page')
+        # page = request.GET.get('page')
         blogpages = self.get_children().live().order_by('-first_published_at')
         context['blogpages'] = blogpages
         # paginator = Paginator(blogpages, 4)
@@ -243,7 +243,7 @@ class BlogPageCategory(TaggedItemBase):
     content_object = ParentalKey('BlogPage', related_name='categorized_items')
 
     def __str__(self):
-        return self.tag.slug
+        return self.category.slug
 
 class BlogCategoryIndexPage(Page):
     intro = RichTextField(blank=True)
@@ -251,8 +251,8 @@ class BlogCategoryIndexPage(Page):
     def get_context(self, request):
 
         # Filter by tag
-        # category = request.GET.get('category')
-        blogpages = BlogPage.objects.all()
+        category = request.GET.get('category')
+        blogpages = BlogPage.objects.filter(categories__name=category)
 
         # Update template context
         context = super(BlogCategoryIndexPage, self).get_context(request)
@@ -368,8 +368,10 @@ class MediaIndexPage(Page):
     def get_context(self, request):
         # Update context to include only published posts, ordered by reverse-chron
         context = super(MediaIndexPage, self).get_context(request)
+
         mediapages = self.get_children().live().order_by('-first_published_at')
         context['mediapages'] = mediapages
+
         return context
 
 
@@ -383,6 +385,18 @@ class ArchivePage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
     ]
+
+    @property
+    def year_date(self):
+        return format_date(self.date, locale='nl', format="YYYY")
+
+    def get_context(self, request):
+        # Update context to include only published posts, ordered by reverse-chron
+        context = super(ArchivePage, self).get_context(request)
+        archivepages = BlogPage.objects.all().live().order_by('-date')
+        context['archivepages'] = archivepages
+
+        return context
 
 
 # =================================================================
@@ -404,3 +418,16 @@ class BlogReeks(models.Model):
         verbose_name_plural = 'blog reeksen'
 
 
+class BlogReeksIndexPage(Page):
+    intro = RichTextField(blank=True)
+
+    def get_context(self, request):
+
+        # Filter by tag
+        reeks = request.GET.get('reeks')
+        blogpages = BlogPage.objects.filter(reeks__name=reeks)
+
+        # Update template context
+        context = super(BlogReeksIndexPage, self).get_context(request)
+        context['blogpages'] = blogpages
+        return context

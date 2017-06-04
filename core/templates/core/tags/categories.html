@@ -1,5 +1,11 @@
-{% for categorie in categories %}
-<ul>
-    <li>{{ categorie.name }}</li>
-</ul>
+{% load staticfiles %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% for category in categories %}
+    <a href="{% slugurl 'category-index' %}?category={{ category }}">{{ category }}</a><br />
 {% endfor %}
+
+
+
+

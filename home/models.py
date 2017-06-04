@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-
+from core.models import *
 from django.db import models
 
 from wagtail.wagtailcore.models import Page
@@ -13,3 +13,12 @@ class HomePage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
     ]
+
+    def get_context(self, request):
+
+        # Update template context
+        context = super(HomePage, self).get_context(request)
+        blogpages = BlogPage.objects.all().live()
+
+        context['blogpages'] = blogpages
+        return context

@@ -1,11 +1,46 @@
 {% extends "core/base.html" %}
 {% load staticfiles %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags core_tags %}
+{% load typogrify_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
 
-    <br><div style="margin-left: 50px">{{ page.body|richtext }}</div>
+    <div style="margin-left: 50px; padding-top: 30px;"><h1>{{ page.title|smartypants }}</h1></div>
+
+    <div style="margin-left: 50px; padding-right: 60px;">{{ page.body|richtext }}</div>
+
+
+    <fieldset >
+        <div class="section-heading">
+            <span>Recent toegevoegd</span>
+        </div>
+        <div>
+            {% for post in blogpages %}
+                <div style="margin-left:25px; float:left;">
+                    {% with post=post.specific %}
+                        <h4><a href="{% pageurl post %}">{{ post.title }}</a></h4>
+
+                        {% with post.main_image as main_image %}
+                            {% if main_image %}{% image main_image min-75x75 %}{% endif %}
+                        {% endwith %}
+                        <h6 style="font-color: #e6e6e6">{{ post.source }} - {{ post.publish_date }}</h6>
+
+                        <!--<p>{{ post.intro }}</p>-->
+                        <!--{{ post.body|richtext }}-->
+                    {% endwith %}
+                </div>
+            {% endfor %}
+        </div>
+    </fieldset>
+
+    <fieldset >
+        <div class="section-heading verdieping">
+            <span>Favorieten</span>
+        </div>
+    </fieldset>
+
+
 {% endblock %}
